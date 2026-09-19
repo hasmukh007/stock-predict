@@ -1,0 +1,52 @@
+<div class="app-layout">
+  <!-- Top Navigation -->
+  <app-navbar (openAuthModal)="openAuth($event)"></app-navbar>
+
+  <!-- Live Market Ticker Tape -->
+  <app-ticker-tape></app-ticker-tape>
+
+  <!-- Main View Router -->
+  <main class="main-body">
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <div class="footer-brand">
+          <span class="brand-text">Stock<span class="brand-gradient">Predict</span></span>
+          <span class="brand-badge">PRO</span>
+        </div>
+        <p class="footer-desc">
+          Professional algorithmic equity intelligence platform powered by Yahoo Finance real-time feeds, dynamic SMA/EMA indicators, RSI momentum gauges, and community analysis.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <div class="link-group">
+          <h6>Platform</h6>
+          <a routerLink="/">Home Feed</a>
+          <a routerLink="/analyzer">Stock Analyzer</a>
+          <a routerLink="/compare">Equities Comparator</a>
+        </div>
+        <div class="link-group">
+          <h6>Trader Tools</h6>
+          <a routerLink="/history">Analysis History</a>
+          <a routerLink="/reminders">Price Reminders</a>
+          <a routerLink="/admin">Admin Governance</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>&copy; 2026 StockPredict Intelligence Inc. All market data provided for educational and analytical purposes.</span>
+    </div>
+  </footer>
+
+  <!-- Auth Dialog Overlay -->
+  <app-auth-modal 
+    *ngIf="showAuthModal" 
+    [mode]="authMode" 
+    (closeEvent)="closeAuth()"
+  ></app-auth-modal>
+</div>
